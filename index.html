@@ -112,7 +112,6 @@ nav {
   display: inline-block;
   position: relative;
   letter-spacing: 1px;
-  /* 3D rounded cartoon text effect */
   background: linear-gradient(180deg,
     #ffffff 0%,
     #a8edff 30%,
@@ -123,9 +122,7 @@ nav {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  /* Thick outline stroke */
   -webkit-text-stroke: 3px #006d5e;
-  /* 3D shadow layers for depth */
   filter: drop-shadow(0 3px 0 #006d5e)
           drop-shadow(0 6px 0 #004d45)
           drop-shadow(0 9px 0 #003530)
@@ -423,7 +420,6 @@ nav {
 }
 .stage-node:hover .stage-tooltip { opacity:1; }
 
-/* Node positions (centered at 260,260 radius 180) */
 .n0  { top: calc(50% - 45px - 185px); left: calc(50% - 45px); background: linear-gradient(135deg,#38d9ff,#00c9b1); }
 .n1  { top: calc(50% - 45px - 130px); left: calc(50% - 45px + 130px); background: linear-gradient(135deg,#ffd93d,#ff9f43); }
 .n2  { top: calc(50% - 45px + 10px); left: calc(50% - 45px + 185px); background: linear-gradient(135deg,#6bcb77,#00a896); }
@@ -617,6 +613,46 @@ nav {
 .info-band .band-icon { font-size:2.5rem; flex-shrink:0; }
 .info-band h3 { font-family:'Kanit',sans-serif; font-weight:700; font-size:1.1rem; color:var(--dark); margin-bottom:4px; }
 .info-band p { color:var(--text2); font-size:0.9rem; line-height:1.7; }
+
+/* ===== รูปภาพ 2 คอลัมน์ ===== */
+.two-img-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin: 0 0 2rem 0;
+}
+.img-card {
+  background: white;
+  border-radius: 20px;
+  border: 3px solid rgba(0,201,177,0.2);
+  box-shadow: 0 6px 0 rgba(0,100,80,0.07), 0 10px 28px rgba(79,142,247,0.12);
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.35s;
+}
+.img-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 14px 0 rgba(0,100,80,0.09), 0 20px 40px rgba(79,142,247,0.18);
+}
+.img-card img {
+  width: 100%; height: 220px; object-fit: cover; display: block;
+}
+.img-card .img-placeholder {
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 8px;
+  height: 220px;
+  font-size: 4rem;
+}
+.img-card .img-caption {
+  padding: 0.85rem 1.2rem;
+  font-family: 'Kanit', sans-serif; font-weight: 600; font-size: 0.9rem;
+  color: var(--mid);
+  border-top: 2px solid rgba(0,201,177,0.12);
+  background: white;
+  display: flex; align-items: center; gap: 6px;
+}
+@media(max-width:600px){
+  .two-img-grid { grid-template-columns: 1fr; }
+}
 
 /* ===== SCROLL QUIZ ===== */
 .sq-item {
@@ -925,7 +961,6 @@ nav {
   z-index: 2;
 }
 
-/* Photo area */
 .pc-photo-wrap {
   position: relative;
   height: 200px;
@@ -949,13 +984,10 @@ nav {
   border: 1.5px dashed rgba(79,142,247,0.35);
   border-radius: 50px; padding: 3px 14px;
 }
-
-/* Photo (actual img tag when user adds one) */
 .pc-photo-wrap img {
   width: 100%; height: 100%; object-fit: cover;
   position: absolute; inset: 0;
 }
-
 .pc-badge {
   position: absolute;
   top: 14px; right: 14px;
@@ -968,8 +1000,6 @@ nav {
   border: 3px solid white;
   z-index: 3;
 }
-
-/* Card body */
 .pc-body {
   padding: 1.5rem 1.6rem 1.8rem;
   text-align: center;
@@ -1021,7 +1051,6 @@ nav {
 .pc-teal:hover { background: rgba(0,201,177,0.2); }
 .pc-blue:hover  { background: rgba(79,142,247,0.2); }
 
-/* Carousel nav buttons */
 .car-btn {
   width: 52px; height: 52px; border-radius: 50%; border: none;
   background: white;
@@ -1040,7 +1069,6 @@ nav {
   border-color: transparent;
 }
 
-/* Pagination dots */
 .car-dots {
   display: flex; justify-content: center; gap: 12px;
   margin-top: 1rem;
@@ -1093,7 +1121,6 @@ footer {
   display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.5rem;
 }
 
-/* animations util */
 @keyframes fadeInDown { from{opacity:0;transform:translateY(-20px);} to{opacity:1;transform:translateY(0);} }
 @keyframes fadeInUp   { from{opacity:0;transform:translateY(30px);}  to{opacity:1;transform:translateY(0);} }
 
@@ -1138,7 +1165,7 @@ footer {
       <div class="nav-logo-icon">🪱</div>
       <div class="nav-logo-text">
         โรงเรียนอนุกูลนารี
-        <span>ทีม : lasn Survivor the Hidden Enemy</span>
+        <span>ทีม : lsan Survivor the Hidden Enemy</span>
       </div>
     </a>
     <ul class="nav-links">
@@ -1179,11 +1206,57 @@ footer {
   <!-- ===== TAB 1: EDUCATION ===== -->
   <div class="tab-content active" id="tab-education">
 
+    <!-- INFO BAND 1: โรคพยาธิใบไม้ตับคืออะไร? -->
     <div class="info-band">
       <div class="band-icon">⚠️</div>
       <div>
         <h3>โรคพยาธิใบไม้ตับคืออะไร?</h3>
-        <p>โรคพยาธิใบไม้ตับ (Opisthorchiasis) เกิดจากพยาธิ <em>Opisthorchis viverrini</em> พบมากในภาคอีสาน เป็นสาเหตุสำคัญของมะเร็งท่อน้ำดี — แต่ป้องกันได้ถ้ารู้ทัน!</p>
+        <p>พยาธิใบไม้ตับคือพยาธิชนิดหนึ่งที่อาศัยอยู่ใน ท่อน้ำดีและตับของมนุษย์ ติดต่อสู่คนได้จากการรับประทาน ปลาน้ำจืดดิบหรือปรุงไม่สุก ที่มีตัวอ่อนของพยาธิ เมื่อเข้าสู่ร่างกาย ตัวอ่อนจะเจริญเติบโตเป็นพยาธิตัวเต็มวัยและอาศัยอยู่ในท่อน้ำดี ทำให้เกิดการอักเสบเรื้อรังของตับและท่อน้ำดี หากติดเชื้อเป็นเวลานานอาจเพิ่มความเสี่ยงต่อ มะเร็งท่อน้ำดี ซึ่งเป็นโรคร้ายแรงและพบได้บ่อยในบางพื้นที่ของประเทศไทย</p>
+      </div>
+    </div>
+
+    <!-- ===== รูปภาพ 2 รูป (แทรกระหว่างหัวข้อทั้งสอง) ===== -->
+    <div class="two-img-grid">
+
+      <!-- รูปที่ 1 -->
+      <div class="img-card">
+        <img
+          src="โรคพยาธิใบไม้ตับ-01.jpg"
+          alt="รูปที่ 1"
+          onerror="this.style.display='none'; document.getElementById('ph1').style.display='flex';"
+        >
+        <div class="img-placeholder" id="ph1"
+             style="display:none; background:linear-gradient(135deg,#e0f7ff,#d8f5f0);">
+          🐟
+          <span style="font-family:'Kanit',sans-serif;font-size:0.8rem;color:#4a7a9b;background:rgba(255,255,255,0.8);border:1.5px dashed rgba(0,201,177,0.4);border-radius:50px;padding:3px 14px;">image1.jpg</span>
+        </div>
+        <div class="img-caption">📸 รูปขอพยาธิใบไม้ตับ</div>
+      </div>
+
+      <!-- รูปที่ 2 -->
+      <div class="img-card">
+        <img
+          src="Liver.png"
+          alt="รูปที่ 2"
+          onerror="this.style.display='none'; document.getElementById('ph2').style.display='flex';"
+        >
+        <div class="img-placeholder" id="ph2"
+             style="display:none; background:linear-gradient(135deg,#fff8e0,#fff0d8);">
+          🔬
+          <span style="font-family:'Kanit',sans-serif;font-size:0.8rem;color:#4a7a9b;background:rgba(255,255,255,0.8);border:1.5px dashed rgba(255,159,67,0.4);border-radius:50px;padding:3px 14px;">image2.jpg</span>
+        </div>
+        <div class="img-caption">📸 รูปตับ</div>
+      </div>
+
+    </div>
+    <!-- ===== END รูปภาพ ===== -->
+
+    <!-- INFO BAND 2: พยาธิใบไม้ตับมาจากไหน? -->
+    <div class="info-band">
+      <div class="band-icon">❓</div>
+      <div>
+        <h3>พยาธิใบไม้ตับมาจากไหน?</h3>
+        <p>พยาธิใบไม้ตับมีแหล่งกำเนิดจาก แหล่งน้ำจืด โดยมี หอยน้ำจืดและปลาน้ำจืดเป็นพาหะสำคัญ ไข่ของพยาธิจะพัฒนาและแพร่กระจายผ่านสิ่งมีชีวิตเหล่านี้ มนุษย์สามารถติดเชื้อได้จากการรับประทานปลาน้ำจืดดิบหรือปรุงไม่สุกที่มีตัวอ่อนของพยาธิ เมื่อเข้าสู่ร่างกาย ตัวอ่อนจะเจริญเติบโตและไปอาศัยอยู่ในตับและท่อน้ำดี</p>
       </div>
     </div>
 
@@ -1446,12 +1519,9 @@ footer {
       </p>
 
       <div class="wheel-container">
-        <!-- SVG Ring with arrows -->
         <svg class="wheel-svg" viewBox="0 0 520 520" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Dashed orbit ring -->
           <circle cx="260" cy="260" r="185"
             stroke="url(#ringGrad)" stroke-width="3" stroke-dasharray="14 6" opacity="0.5"/>
-          <!-- Arrow markers along ring -->
           <defs>
             <linearGradient id="ringGrad" x1="0" y1="0" x2="520" y2="520" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stop-color="#38d9ff"/>
@@ -1459,24 +1529,14 @@ footer {
               <stop offset="100%" stop-color="#4f8ef7"/>
             </linearGradient>
           </defs>
-          <!-- 8 arc arrows between nodes -->
-          <!-- Arrow 0→1 -->
           <path d="M260 75 A185 185 0 0 1 390 130" stroke="#38d9ff" stroke-width="3" fill="none" marker-end="url(#arr)" opacity="0.7"/>
-          <!-- Arrow 1→2 -->
           <path d="M390 130 A185 185 0 0 1 445 260" stroke="#00c9b1" stroke-width="3" fill="none" marker-end="url(#arr)" opacity="0.7"/>
-          <!-- Arrow 2→3 -->
           <path d="M445 260 A185 185 0 0 1 390 390" stroke="#4f8ef7" stroke-width="3" fill="none" marker-end="url(#arr)" opacity="0.7"/>
-          <!-- Arrow 3→4 -->
           <path d="M390 390 A185 185 0 0 1 260 445" stroke="#a78bfa" stroke-width="3" fill="none" marker-end="url(#arr)" opacity="0.7"/>
-          <!-- Arrow 4→5 -->
           <path d="M260 445 A185 185 0 0 1 130 390" stroke="#ff6bab" stroke-width="3" fill="none" marker-end="url(#arr)" opacity="0.7"/>
-          <!-- Arrow 5→6 -->
           <path d="M130 390 A185 185 0 0 1 75 260" stroke="#ff9f43" stroke-width="3" fill="none" marker-end="url(#arr)" opacity="0.7"/>
-          <!-- Arrow 6→7 -->
           <path d="M75 260 A185 185 0 0 1 130 130" stroke="#ffd93d" stroke-width="3" fill="none" marker-end="url(#arr)" opacity="0.7"/>
-          <!-- Arrow 7→0 -->
           <path d="M130 130 A185 185 0 0 1 260 75" stroke="#6bcb77" stroke-width="3" fill="none" marker-end="url(#arr)" opacity="0.7"/>
-
           <defs>
             <marker id="arr" markerWidth="8" markerHeight="6" refX="6" refY="3" orient="auto">
               <polygon points="0 0, 8 3, 0 6" fill="#00c9b1"/>
@@ -1484,14 +1544,12 @@ footer {
           </defs>
         </svg>
 
-        <!-- Center -->
         <div class="wheel-center">
           <div class="wheel-center-icon">🔄</div>
           <div class="wheel-center-text">วัฏจักร<br>พยาธิ</div>
         </div>
 
-        <!-- Stage nodes -->
-        <div class="stage-node n0" style="">
+        <div class="stage-node n0">
           <span class="node-icon">🥚</span>
           <span class="node-name">ไข่พยาธิ</span>
           <div class="stage-tooltip">ไข่ออกมากับอุจจาระสู่แหล่งน้ำ</div>
@@ -1503,7 +1561,7 @@ footer {
         </div>
         <div class="stage-node n2">
           <span class="node-icon">🐌</span>
-          <span class="node-name">หอยโขง</span>
+          <span class="node-name">หอยโข่ง</span>
           <div class="stage-tooltip">โฮสต์กลางที่ 1 — ตัวอ่อนเติบโตในหอย</div>
         </div>
         <div class="stage-node n3">
@@ -1522,7 +1580,9 @@ footer {
           <div class="stage-tooltip">มนุษย์รับพยาธิจากการกินปลาสุกๆดิบๆ</div>
         </div>
         <div class="stage-node n6">
-          <span class="node-icon">🫀</span>
+          <span class="node-icon">
+          <img src="Photoroom.png" alt="ท่อน้ำดี" style="width:2rem; height:2rem; object-fit:cover; border-radius:50%;">
+          </span>
           <span class="node-name">ท่อน้ำดี/ตับ</span>
           <div class="stage-tooltip">พยาธิตัวเต็มวัยอาศัยในท่อน้ำดี ก่อโรค</div>
         </div>
@@ -1542,7 +1602,6 @@ footer {
   <div class="tab-content" id="tab-risk">
     <div class="quiz-container" id="riskSectionAnchor">
 
-      <!-- Header -->
       <div style="text-align:center;margin-bottom:0.5rem;">
         <span class="sec-heading pink">🎯 ประเมินความเสี่ยงของฉัน!</span>
       </div>
@@ -1550,7 +1609,6 @@ footer {
         ตอบทุกข้อให้ครบ แล้วกด <strong>"ดูผลการประเมิน"</strong> ด้านล่างได้เลย 😊
       </p>
 
-      <!-- All questions visible, scroll down -->
       <div id="questionsArea">
 
         <div class="sq-item" id="sq1">
@@ -1663,15 +1721,12 @@ footer {
 
       </div>
 
-      <!-- Progress counter -->
       <div class="sq-counter" id="sqCounter">ตอบแล้ว <span id="sqDone">0</span> / 9 ข้อ</div>
 
-      <!-- Submit button -->
       <button class="assess-submit-btn" id="assessSubmitBtn" onclick="calcScrollQuiz()" disabled>
         🎯 ดูผลการประเมิน
       </button>
 
-      <!-- Result panel -->
       <div class="result-panel" id="resultPanel">
         <div class="result-mascot" id="resMascot">🎉</div>
         <span class="result-level-text" id="resLevel">ผลการประเมิน</span>
@@ -1695,13 +1750,11 @@ footer {
       <p>นักเรียนโรงเรียนอนุกูลนารี</p>
     </div>
 
-    <!-- CAROUSEL WRAPPER -->
     <div class="carousel-wrapper">
       <button class="car-btn car-prev" onclick="moveCarousel(-1)" aria-label="previous">&#8249;</button>
       <div class="carousel-track-outer">
         <div class="carousel-track" id="carTrack">
 
-          <!-- Card 1 -->
           <div class="profile-card" data-index="0">
             <div class="pc-photo-wrap">
               <div class="pc-photo-placeholder">
@@ -1722,7 +1775,6 @@ footer {
             </div>
           </div>
 
-          <!-- Card 2 -->
           <div class="profile-card" data-index="1">
             <div class="pc-photo-wrap">
               <div class="pc-photo-placeholder">
@@ -1743,7 +1795,6 @@ footer {
             </div>
           </div>
 
-          <!-- Card 3 -->
           <div class="profile-card" data-index="2">
             <div class="pc-photo-wrap">
               <div class="pc-photo-placeholder">
@@ -1764,12 +1815,11 @@ footer {
             </div>
           </div>
 
-        </div><!-- /carousel-track -->
+        </div>
       </div>
       <button class="car-btn car-next" onclick="moveCarousel(1)" aria-label="next">&#8250;</button>
     </div>
 
-    <!-- Pagination dots -->
     <div class="car-dots" id="carDots">
       <span class="car-dot active" onclick="goToCard(0)"></span>
       <span class="car-dot" onclick="goToCard(1)"></span>
@@ -1800,7 +1850,7 @@ footer {
       <h4>ติดต่อและช่วยเหลือ</h4>
       <ul>
         <li><a href="https://ddc.moph.go.th/">กรมควบคุมโรค</a></li>
-        <li><a href="https://datariskcom-ddc.moph.go.th/download/%E0%B8%AA%E0%B8%B2%E0%B8%A2%E0%B8%94%E0%B9%88%E0%B8%A7%E0%B8%99-1422-%E0%B8%81%E0%B8%A3%E0%B8%A1%E0%B8%84%E0%B8%A7%E0%B8%9A%E0%B8%84%E0%B8%B8%E0%B8%A1%E0%B9%82%E0%B8%A3%E0%B8%84-%E0%B8%9B%E0%B8%A3/">สายด่วนสุขภาพ 1422</a></li>
+        <li><a href="https://datariskcom-ddc.moph.go.th/download/%E0%B8%AA%E0%B8%B2%E0%B8%A2%E0%B8%94%E0%B9%88%E0%B8%A7%E0%B8%99-1422-%E0%B8%81%E0%B8%A3%E0%B8%A1%E0%B8%84%E0%B8%A7%E0%B8%9A%E0%B8%84%E0%B8%B8%E0%B8%A1%E0%B9%82%E0%B8%A3%E0%B8%84-%E0%B8%9B%E0%B8%A3%E0%B8%B8/">สายด่วนสุขภาพ 1422</a></li>
         <li><a href="https://www.google.com/maps/search/โรงพยาบาลใกล้ฉัน">โรงพยาบาลใกล้บ้าน</a></li>
         <li><a href="https://www.instagram.com/pawarisa__wan/">👩‍💻แจ้งข้อมูลผิดพลาด👩‍💻</a></li>
       </ul>
@@ -1859,13 +1909,9 @@ document.querySelectorAll('.tab-btn').forEach(btn=>{
 // ===== ACCORDION =====
 function toggleAcc(card) {
   const wasOpen = card.classList.contains('open');
-  // close all
   document.querySelectorAll('.acc-card').forEach(c=>c.classList.remove('open'));
-  // open this one if it wasn't open
   if(!wasOpen) {
     card.classList.add('open');
-    const icon = card.querySelector('.acc-icon');
-    // particle burst
     burstParticles(card);
   }
 }
@@ -1915,7 +1961,6 @@ document.querySelectorAll('.sq-opt').forEach(opt => {
   opt.addEventListener('click', function() {
     const qNum = this.getAttribute('data-q');
     const val = parseInt(this.getAttribute('data-value'));
-    // deselect siblings
     const item = this.closest('.sq-item');
     item.querySelectorAll('.sq-opt').forEach(o => o.classList.remove('selected'));
     this.classList.add('selected');
@@ -1972,9 +2017,7 @@ function calcScrollQuiz() {
 }
 
 function restartQuiz() {
-  // clear answers
   Object.keys(sqAnswers).forEach(k => delete sqAnswers[k]);
-  // reset UI
   document.querySelectorAll('.sq-opt').forEach(o => {
     o.classList.remove('selected');
     o.querySelector('input').checked = false;
@@ -1998,7 +2041,7 @@ const carTotal = carCards.length;
 
 function updateCarousel() {
   const track = document.getElementById('carTrack');
-  const cardWidth = 320 + 36; // flex basis + 2*margin
+  const cardWidth = 320 + 36;
   const outerWidth = document.querySelector('.carousel-track-outer')?.offsetWidth || 500;
   const offset = (outerWidth / 2) - (cardWidth / 2) - (carIndex * cardWidth);
   track.style.transform = `translateX(${offset}px)`;
@@ -2022,16 +2065,13 @@ function goToCard(idx) {
   updateCarousel();
 }
 
-// click on side cards to focus
 carCards.forEach((card, i) => {
   card.addEventListener('click', () => goToCard(i));
 });
 
-// init on load + resize
 window.addEventListener('load', updateCarousel);
 window.addEventListener('resize', updateCarousel);
 
-// touch swipe for mobile
 let touchStartX = 0;
 const carOuter = document.querySelector('.carousel-track-outer');
 if (carOuter) {
